@@ -1,0 +1,462 @@
+[
+  { 
+    "model": "kitchen.dishtype",
+    "pk": 1,
+    "fields": {
+      "name": "Soups"
+    } 
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 2,
+    "fields":{
+      "name": "Main Courses"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 3, "fields":{
+      "name": "Desserts"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 4,
+    "fields": {
+      "name": "Salads"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 5, "fields": {
+      "name": "Drinks"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 6,
+    "fields": {
+      "name": "Pasta"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 7,
+    "fields": {
+      "name": "Seafood"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 8,
+    "fields": {
+      "name": "Grill"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 9,
+    "fields": {
+      "name": "Breakfast"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 10,
+    "fields": {
+      "name": "Pizza"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 11,
+    "fields": {
+      "name": "Vegan"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 12,
+    "fields": {
+      "name": "Street Food"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 13,
+    "fields": {
+      "name": "Asian"
+    }
+  },
+  {
+    "model": "kitchen.dishtype",
+    "pk": 14,
+    "fields": {
+      "name": "Bakery"
+    }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$6rQpWAG8nuED8FDdRHR9uv$/C16mn2b6TaaciX152dk+7rkcDnRHMgIUlJ3NXnI0cI=",
+      "is_superuser": true,
+      "username": "admin.user",
+      "first_name": "Admin",
+      "last_name": "Chef",
+      "email": "admin@restaurant.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-08-08T13:58:29Z",
+      "years_of_experience": 20,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$02eK3pj3Wly6IXKsCjwwLy$cXg67TIjErC12p5IUtGKA0djCbBVbpFCIO8lE3q6iF0=",
+      "username": "anna.smith",
+      "first_name": "Anna",
+      "last_name": "Smith",
+      "email": "anna@restaurant.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:17:04Z",
+      "years_of_experience": 5,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$02eK3pj3Wly6IXKsCjwwLy$cXg67TIjErC12p5IUtGKA0djCbBVbpFCIO8lE3q6iF0=",
+      "username": "john.doe",
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john@restaurant.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "years_of_experience": 8,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$02eK3pj3Wly6IXKsCjwwLy$cXg67TIjErC12p5IUtGKA0djCbBVbpFCIO8lE3q6iF0=",
+      "username": "maria.rossi",
+      "first_name": "Maria",
+      "last_name": "Rossi",
+      "email": "maria@restaurant.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-10T14:19:09Z",
+      "years_of_experience": 12,
+      "groups": [],
+      "user_permissions": []
+      }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$02eK3pj3Wly6IXKsCjwwLy$cXg67TIjErC12p5IUtGKA0djCbBVbpFCIO8lE3q6iF0=",
+      "username": "li.wei",
+      "first_name": "Li",
+      "last_name": "Wei",
+      "email": "li@restaurant.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-10T14:19:09Z",
+      "years_of_experience": 10,
+      "groups": [],
+      "user_permissions": []
+      }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$02eK3pj3Wly6IXKsCjwwLy$cXg67TIjErC12p5IUtGKA0djCbBVbpFCIO8lE3q6iF0=",
+      "username": "oliver.king",
+      "first_name": "Oliver",
+      "last_name": "King",
+      "email": "oliver@restaurant.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-10T14:19:09Z",
+      "years_of_experience": 6,
+      "groups": [],
+      "user_permissions": []
+      }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$02eK3pj3Wly6IXKsCjwwLy$cXg67TIjErC12p5IUtGKA0djCbBVbpFCIO8lE3q6iF0=",
+      "username": "emma.brown",
+      "first_name": "Emma",
+      "last_name": "Brown",
+      "email": "emma@restaurant.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-11T14:19:09Z",
+      "years_of_experience": 4,
+      "groups": [],
+      "user_permissions": []
+      }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$02eK3pj3Wly6IXKsCjwwLy$cXg67TIjErC12p5IUtGKA0djCbBVbpFCIO8lE3q6iF0=",
+      "username": "noah.green",
+      "first_name": "Noah",
+      "last_name": "Green",
+      "email": "noah@restaurant.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-11T14:19:09Z",
+      "years_of_experience": 9,
+      "groups": [],
+      "user_permissions": []
+      }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$02eK3pj3Wly6IXKsCjwwLy$cXg67TIjErC12p5IUtGKA0djCbBVbpFCIO8lE3q6iF0=",
+      "username": "lucas.white",
+      "first_name": "Lucas",
+      "last_name": "White",
+      "email": "lucas@restaurant.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-12T14:19:09Z",
+      "years_of_experience": 7,
+      "groups": [],
+      "user_permissions": []
+      }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$02eK3pj3Wly6IXKsCjwwLy$cXg67TIjErC12p5IUtGKA0djCbBVbpFCIO8lE3q6iF0=",
+      "username": "sophia.black",
+      "first_name": "Sophia",
+      "last_name": "Black",
+      "email": "sophia@restaurant.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-12T14:19:09Z",
+      "years_of_experience": 11,
+      "groups": [],
+      "user_permissions": []
+      }
+  },
+  {
+    "model": "kitchen.cook",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$02eK3pj3Wly6IXKsCjwwLy$cXg67TIjErC12p5IUtGKA0djCbBVbpFCIO8lE3q6iF0=",
+      "username": "daniel.wood",
+      "first_name": "Daniel",
+      "last_name": "Wood",
+      "email": "daniel@restaurant.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-12T14:19:09Z",
+      "years_of_experience": 3,
+      "groups": [],
+      "user_permissions": []
+      }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 1,
+    "fields": {
+      "name": "Tomato Soup",
+      "description": "Classic tomato soup with basil.",
+      "price": "4.99",
+      "dish_type": 1,
+      "cooks": [2,3]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 2,
+    "fields": {
+      "name": "Chicken Noodle Soup",
+      "description": "Homemade soup with chicken.",
+      "price": "5.50",
+      "dish_type": 1,
+      "cooks": [3]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 3,
+    "fields": {
+      "name": "Grilled Steak",
+      "description": "Beef steak grilled to perfection.",
+      "price": "18.90",
+      "dish_type": 8,
+      "cooks": [4,6]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 4,
+    "fields": {
+      "name": "Spaghetti Carbonara",
+      "description": "Italian pasta with bacon and cheese.",
+      "price": "12.00",
+      "dish_type": 6,
+      "cooks": [4]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 5,
+    "fields": {
+      "name": "Margherita Pizza",
+      "description": "Classic pizza with mozzarella.",
+      "price": "9.50",
+      "dish_type": 10,
+      "cooks": [4,10]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 6,
+    "fields": {
+      "name": "Caesar Salad",
+      "description": "Salad with chicken and parmesan.",
+      "price": "7.20",
+      "dish_type": 4,
+      "cooks": [2,7]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 7,
+    "fields": {
+      "name": "Vegan Bowl",
+      "description": "Healthy vegan dish.",
+      "price": "8.30",
+      "dish_type": 11,
+      "cooks": [7,11]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 8,
+    "fields": {
+      "name": "Sushi Set",
+      "description": "Assorted sushi platter.",
+      "price": "15.00",
+      "dish_type": 13,
+      "cooks": [5]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 9,
+    "fields": {
+      "name": "Grilled Salmon",
+      "description": "Salmon with lemon sauce.",
+      "price": "16.40",
+      "dish_type": 7,
+      "cooks": [5,6]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 10,
+    "fields": {
+      "name": "Pancakes",
+      "description": "Breakfast pancakes with syrup.",
+      "price": "4.80",
+      "dish_type": 9,
+      "cooks": [8]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 11,
+    "fields": {
+      "name": "Burger",
+      "description": "Street-style beef burger.",
+      "price": "6.90",
+      "dish_type": 12,
+      "cooks": [6,9]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 12,
+    "fields": {
+      "name": "Espresso",
+      "description": "Strong Italian coffee.",
+      "price": "2.10",
+      "dish_type": 5,
+      "cooks": []
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 13,
+    "fields": {
+      "name": "Chocolate Cake",
+      "description": "Rich chocolate dessert.",
+      "price": "5.40",
+      "dish_type": 3,
+      "cooks": [10]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 14,
+    "fields": {
+      "name": "Croissant",
+      "description": "Fresh baked croissant.",
+      "price": "2.80",
+      "dish_type": 14,
+      "cooks": [10,11]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 15,
+    "fields": {
+      "name": "Ramen",
+      "description": "Japanese noodle soup.",
+      "price": "11.50",
+      "dish_type": 13,
+      "cooks": [5]
+    }
+  },
+  {
+    "model": "kitchen.dish",
+    "pk": 16,
+    "fields": {
+      "name": "BBQ Ribs",
+      "description": "Slow-cooked BBQ ribs.",
+      "price": "17.00",
+      "dish_type": 8,
+      "cooks": [6,9]
+    }
+  }
+]
