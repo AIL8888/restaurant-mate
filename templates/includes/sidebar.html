@@ -10,10 +10,6 @@
         <button type="submit" class="btn btn-link p-0 m-0">Logout</button>
       </form>
     </li>
-  {% else %}
-    <li class="list-group-item">
-      <a href="{% url 'login' %}?next={{ request.path }}">Login</a>
-    </li>
   {% endif %}
 
   <br>

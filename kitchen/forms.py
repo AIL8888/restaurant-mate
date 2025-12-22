@@ -25,7 +25,6 @@ class CookExperienceMixin:
         return experience
 
 
-
 class CookCreationForm(UserCreationForm, CookExperienceMixin):
     class Meta(UserCreationForm.Meta):
         model = Cook
@@ -62,5 +61,7 @@ class DishTypeSearchForm(forms.Form):
     name = forms.CharField(
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by category name"})
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by category name"}
+        )
     )
