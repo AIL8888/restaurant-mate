@@ -1,0 +1,13 @@
+body {
+    margin-top: 20px;
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+.link-to-page {
+    float: right;
+    margin: 0 2px 0 2px;
+}
