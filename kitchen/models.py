@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 
+from cloudinary.models import CloudinaryField
+
 
 class DishType(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -33,6 +35,7 @@ class Dish(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=7)
     dish_type = models.ForeignKey(DishType, on_delete=models.CASCADE)
     cooks = models.ManyToManyField(Cook, related_name="dishes")
+    image = CloudinaryField("image", blank=True, null=True)
 
     def __str__(self):
         return self.name
