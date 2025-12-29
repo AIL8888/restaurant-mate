@@ -4,7 +4,7 @@ Django project for managing dishes and cooks in Restaurant
 
 ## Check it out!
 
-[Restaurant project deployed to Render]()
+[Restaurant project deployed to Render](https://restaurant-mate-ww2z.onrender.com/)
 
 ## Installation
 
