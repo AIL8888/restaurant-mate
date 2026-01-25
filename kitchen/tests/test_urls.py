@@ -70,10 +70,51 @@ class KitchenURLsTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_dish_toggle_assign_url(self):
+        self.client.force_login(self.cook)
+
+        response = self.client.post(
+            reverse("kitchen:toggle-dish-assign", args=[self.dish.id]),
+            follow=False,
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response,
+            reverse("kitchen:dish-detail", args=[self.dish.id]),
+            fetch_redirect_response=False,
+        )
+
+    def test_dish_toggle_assign_url_get_not_allowed(self):
+        self.client.force_login(self.cook)
+
         response = self.client.get(
             reverse("kitchen:toggle-dish-assign", args=[self.dish.id])
         )
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 405)
+
+    def test_dish_toggle_assign_adds_cook(self):
+        self.client.force_login(self.cook)
+
+        self.dish.cooks.remove(self.cook)
+        self.dish.refresh_from_db()
+        self.assertFalse(self.dish.cooks.filter(id=self.cook.id).exists())
+
+        self.client.post(reverse("kitchen:toggle-dish-assign", args=[self.dish.id]))
+
+        self.dish.refresh_from_db()
+        self.assertTrue(self.dish.cooks.filter(id=self.cook.id).exists())
+
+    def test_dish_toggle_assign_removes_cook(self):
+        self.client.force_login(self.cook)
+
+        self.dish.cooks.add(self.cook)
+        self.dish.refresh_from_db()
+        self.assertTrue(self.dish.cooks.filter(id=self.cook.id).exists())
+
+        self.client.post(reverse("kitchen:toggle-dish-assign", args=[self.dish.id]))
+
+        self.dish.refresh_from_db()
+        self.assertFalse(self.dish.cooks.filter(id=self.cook.id).exists())
 
     def test_cook_list_url(self):
         response = self.client.get(reverse("kitchen:cook-list"))
