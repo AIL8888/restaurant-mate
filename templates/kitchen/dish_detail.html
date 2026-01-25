@@ -18,14 +18,20 @@
   <h1>
     Cooks
 
-    {% if dish in user.dishes.all %}
-      <a href="{% url 'kitchen:toggle-dish-assign' pk=dish.id %}" class="btn btn-danger link-to-page">
-        Remove me from this dish
-      </a>
+    {% if is_assigned %}
+      <form method="post" action="{% url 'kitchen:toggle-dish-assign' pk=dish.id %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger link-to-page">
+          Remove me from this dish
+        </button>
+      </form>
     {% else %}
-      <a href="{% url 'kitchen:toggle-dish-assign' pk=dish.id %}" class="btn btn-success link-to-page">
-        Assign me to this dish
-      </a>
+      <form method="post" action="{% url 'kitchen:toggle-dish-assign' pk=dish.id %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success link-to-page">
+          Assign me to this dish
+        </button>
+      </form>
     {% endif %}
 
   </h1>

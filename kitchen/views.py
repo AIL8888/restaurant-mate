@@ -1,9 +1,8 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect, HttpResponseNotAllowed
+from django.urls import reverse_lazy, reverse
 from django.views import generic
+from django.shortcuts import get_object_or_404
 
 from kitchen.models import Cook, Dish, DishType
 from kitchen.forms import (
@@ -16,23 +15,21 @@ from kitchen.forms import (
 )
 
 
-@login_required
-def index(request):
-    num_cooks = Cook.objects.count()
-    num_dishes = Dish.objects.count()
-    num_dish_types = DishType.objects.count()
+class IndexView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "kitchen/index.html"
 
-    num_visits = request.session.get("num_visits", 0)
-    request.session["num_visits"] = num_visits + 1
+    def dispatch(self, request, *args, **kwargs):
+        self.num_visits = request.session.get("num_visits", 0) + 1
+        request.session["num_visits"] = self.num_visits
+        return super().dispatch(request, *args, **kwargs)
 
-    context = {
-        "num_cooks": num_cooks,
-        "num_dishes": num_dishes,
-        "num_dish_types": num_dish_types,
-        "num_visits": num_visits + 1,
-    }
-
-    return render(request, "kitchen/index.html", context=context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["num_cooks"] = Cook.objects.count()
+        context["num_dishes"] = Dish.objects.count()
+        context["num_dish_types"] = DishType.objects.count()
+        context["num_visits"] = self.num_visits
+        return context
 
 
 class DishTypeListView(LoginRequiredMixin, generic.ListView):
@@ -95,6 +92,12 @@ class DishListView(LoginRequiredMixin, generic.ListView):
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        dish = self.object
+        context["is_assigned"] = dish.cooks.filter(pk=self.request.user.pk).exists()
+        return context
+
 
 class DishCreateView(LoginRequiredMixin, generic.CreateView):
     model = Dish
@@ -135,7 +138,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
-    queryset = Cook.objects.all().prefetch_related("dishes__dish_type")
+    queryset = Cook.objects.prefetch_related("dishes__dish_type")
 
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
@@ -154,15 +157,17 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("kitchen:cook-list")
 
 
-@login_required
-def toggle_assign_to_dish(request, pk):
-    cook = Cook.objects.get(id=request.user.id)
+class ToggleAssignToDishView(LoginRequiredMixin, generic.View):
+    def post(self, request, *args, **kwargs):
+        dish = get_object_or_404(Dish, pk=kwargs["pk"])
+        cook = request.user
 
-    if Dish.objects.get(id=pk) in cook.dishes.all():
-        cook.dishes.remove(pk)
-    else:
-        cook.dishes.add(pk)
+        if dish.cooks.filter(pk=cook.pk).exists():
+            dish.cooks.remove(cook)
+        else:
+            dish.cooks.add(cook)
 
-    return HttpResponseRedirect(
-        reverse_lazy("kitchen:dish-detail", args=[pk])
-    )
+        return HttpResponseRedirect(reverse("kitchen:dish-detail", args=[dish.pk]))
+
+    def get(self, request, *args, **kwargs):
+        return HttpResponseNotAllowed(["POST"])
